@@ -1,5 +1,6 @@
-sample-job:
-  image: alpine:latest
+unit-test:
+  image: amazoncorretto:latest
   tags: [docker]
   script:
-    - echo "Hello world"
+    # Maven Wrapper を使用する 
+    - ./mvnw clean test 
