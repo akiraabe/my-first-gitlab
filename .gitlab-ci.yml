@@ -1,5 +1,10 @@
+image: amazoncorretto:11
+
+stages:
+  - test
+
 unit-test:
-  image: amazoncorretto:11
+  stage: test
   tags: [docker]
   script:
     # Maven Wrapper を使用する 
@@ -9,3 +14,18 @@ unit-test:
       junit:
         - target/surefire-reports/TEST-*.xml
         - target/failsafe-reports/TEST-*.xml
+
+job-checkstyle:
+  stage: test
+  script:
+    - mvn checkstyle:checkstyle
+  artifacts:
+    when: always
+    paths:
+      - target/site/checkstyle.html
+      - target/site/checkstyle.rss
+     #- target/checkstyle-result.xml
+  tags: [docker]
+  allow_failure: true
+  except:
+    - tags
