@@ -3,4 +3,9 @@ unit-test:
   tags: [docker]
   script:
     # Maven Wrapper を使用する 
-    - ./mvnw clean test 
+    - ./mvnw clean test
+  artifacts:
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+        - target/failsafe-reports/TEST-*.xml
