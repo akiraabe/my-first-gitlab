@@ -50,7 +50,7 @@
 					</dependency>
 				</dependencies>
 				<configuration>
-					<configLocation>checkstyle.xml</configLocation>
+					<configLocation>google_checks.xml</configLocation>
 					<encoding>UTF-8</encoding>
 				</configuration>
 				<executions>
