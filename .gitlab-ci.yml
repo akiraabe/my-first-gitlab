@@ -1,0 +1,5 @@
+sample-job:
+  image: alpine:latest
+  tags: [docker]
+  script:
+    - echo "Hello world"
