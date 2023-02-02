@@ -1,5 +1,5 @@
 unit-test:
-  image: amazoncorretto:latest
+  image: amazoncorretto:11
   tags: [docker]
   script:
     # Maven Wrapper を使用する 
