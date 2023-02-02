@@ -18,7 +18,7 @@ unit-test:
 job-checkstyle:
   stage: test
   script:
-    - mvn checkstyle:checkstyle
+    - ./mvnw checkstyle:checkstyle
   artifacts:
     when: always
     paths:
