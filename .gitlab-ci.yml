@@ -12,8 +12,7 @@ variables:
   # Improve performance with overlayfs.
   DOCKER_DRIVER: overlay2
 
-# image: amazoncorretto:11
-image: docker:18.09.7
+image: amazoncorretto:11
 
 stages:
   - test
