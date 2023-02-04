@@ -19,27 +19,7 @@ public class MusicController {
 
     @Autowired
     private MusicService musicService;
-
-    /**
-     * Play music.
-     *
-     * @return message string.
-     */
-    @GetMapping("/play")
-    public String play() {
-        return "Playing music";
-    }
-
-    /**
-     * Stop music.
-     *
-     * @return message string.
-     */
-    @GetMapping("/stop")
-    public String stop() {
-        return "Stopping music";
-    }
-
+  
     /**
      * Find all music.
      *

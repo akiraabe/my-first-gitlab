@@ -4,7 +4,6 @@ import com.example.demo.domain.model.Music;
 import com.example.demo.domain.repository.MusicRepository;
 import java.util.List;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test; // jupiterの@Testを指定すること！！
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -33,5 +32,14 @@ public class MusicRepositoryTest {
     public void test1() {
         List<Music> musicList = musicRepository.findAll();
         Assertions.assertThat(musicList.size()).isEqualTo(2);
+        musicList.forEach(System.out::println);
+    }
+
+    @Test
+    @Sql(scripts = { "classpath:/scripts/init.sql", "classpath:/scripts/test2.sql" } )
+    public void test2() {
+        List<Music> musicList = musicRepository.findAll();
+        Assertions.assertThat(musicList.size()).isEqualTo(3);
+        musicList.forEach(System.out::println);
     }
 }
