@@ -1,4 +1,19 @@
-#
+# my-first-gitlab
+
+## How to use
+
+```
+# We assume you are in the top directory of the project.
+
+# startup Mysql
+cd docker
+docker compose up -d
+
+# startup SpringBoot app
+cd ..
+./mvnw spring-boot:run
+```
+
 
 ## Trouble shooting
 
