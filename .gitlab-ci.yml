@@ -22,9 +22,7 @@ job-checkstyle:
   artifacts:
     when: always
     paths:
-      - target/site/checkstyle.html
-      - target/site/checkstyle.rss
-     #- target/checkstyle-result.xml
+      - target/site/*
   tags: [docker]
   allow_failure: true
   except:
