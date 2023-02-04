@@ -9,4 +9,4 @@ CREATE TABLE IF NOT EXISTS `music`
   ,`genre`       VARCHAR(30)  NOT NULL
   ,`rate`        INTEGER      NOT NULL
   ,PRIMARY KEY(`id`)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
