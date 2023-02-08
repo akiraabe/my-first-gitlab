@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
-//import org.testcontainers.junit.jupiter.Testcontainers;
 
-//@Testcontainers
 @DataJpaTest(excludeAutoConfiguration = AutoConfigureTestDatabase.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class MusicRepositoryTest {
@@ -39,7 +37,7 @@ public class MusicRepositoryTest {
     @Sql(scripts = { "classpath:/scripts/init.sql", "classpath:/scripts/test2.sql" } )
     public void test2() {
         List<Music> musicList = musicRepository.findAll();
-        Assertions.assertThat(musicList.size()).isEqualTo(3);
+        Assertions.assertThat(musicList.size()).isEqualTo(4);
         musicList.forEach(System.out::println);
     }
 }

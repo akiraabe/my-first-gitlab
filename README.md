@@ -20,6 +20,7 @@ JUnit実行
 
 ```
 # We assume you are in the top directory of the project.
+export HOST=localhost
 ./mvnw test
 ```
 
