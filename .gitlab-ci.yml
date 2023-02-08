@@ -1,16 +1,16 @@
-# DinD service is required for Testcontainers
+# テスト用ＤＢの Docker image
+# - コロンの左側をテストコード側の接続先のホスト名として使用
 services:
-  - name: docker:dind
-    # explicitly disable tls to avoid docker startup interruption
-    command: ["--tls=false"]
+  - mysql:8
 
+# テスト用ＤＢの定義
+# - テストコード側での接続先ＤＢ名などは、ここで定義した値を指定
 variables:
-  # Instruct Testcontainers to use the daemon of DinD, use port 2735 for non-tls connections.
-  DOCKER_HOST: "tcp://docker:2375"
-  # Instruct Docker not to start over TLS.
-  DOCKER_TLS_CERTDIR: ""
-  # Improve performance with overlayfs.
-  DOCKER_DRIVER: overlay2
+  MYSQL_ROOT_PASSWORD: root
+  MYSQL_DATABASE: test
+  TZ: 'Asia/Tokyo'
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
 
 image: amazoncorretto:11
 
