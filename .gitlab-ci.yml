@@ -46,12 +46,18 @@ job-checkstyle:
 
 job-deploy:
   stage: deploy
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
   script:
-    - docker --version
-  tags: [docker]
-  # artifacts:
-  #   when: on_success
-  #   paths:
-  #     - src.zip
-  only:
-    - main
+    - .mvnw package -DskipTests=true
+    - /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/docker/Dockerfile
+      --no-push
+      --destination $CI_REGISTRY_IMAGE/path/to/your/image:version
+      --tarPath image.tar
+  artifacts:
+    paths:
+    - image.tar
+    when: on_success
