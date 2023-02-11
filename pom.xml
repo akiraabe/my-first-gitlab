@@ -20,6 +20,7 @@
     <checkstyle.consoleOutput>true</checkstyle.consoleOutput>
     <junit.platform.version>1.8.2</junit.platform.version>
     <junit.jupiter.version>5.8.2</junit.jupiter.version>
+    <plugin.spotbugs.version>4.7.3.0</plugin.spotbugs.version>
   </properties>
 
   <dependencies>
