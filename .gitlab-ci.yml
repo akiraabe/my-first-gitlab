@@ -16,6 +16,7 @@ image: amazoncorretto:11
 
 stages:
   - test
+  - deploy
 
 unit-test:
   stage: test
@@ -41,3 +42,16 @@ job-checkstyle:
   allow_failure: true
   except:
     - tags
+
+
+job-deploy:
+  stage: deploy
+  script:
+    - docker --version
+  tags: [docker]
+  # artifacts:
+  #   when: on_success
+  #   paths:
+  #     - src.zip
+  only:
+    - main

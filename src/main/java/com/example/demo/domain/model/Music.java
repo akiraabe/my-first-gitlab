@@ -1,5 +1,6 @@
 package com.example.demo.domain.model;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -37,5 +38,8 @@ public class Music {
 
     @Column(name = "rate")
     private Integer rate;
-    
+
+    @Column(name= "publish_date")
+    private Date publishDate;
+
 }
